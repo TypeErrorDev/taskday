@@ -3,7 +3,7 @@ import Images from "../../public/assets/Images";
 const FeaturesSections = () => {
   return (
     <div>
-      <div className="flex flex-col justify-center items-center bg-[#F8F8F8] max-h-fit mt-20">
+      <div className="flex flex-col justify-center items-center bg-[#F8F8F8] h-[850px] mt-10 pb-10 ">
         {/* Top Text */}
         <div className="flex justify-center items-center flex-col text-center  p-5">
           <h1 className="text-2xl font-bold italic">
