@@ -3,7 +3,7 @@ import { supabase } from "../createClient";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    userName: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -24,12 +24,35 @@ const Login = () => {
         password: formData.password,
         options: {
           data: {
-            userName: formData.userName,
+            username: formData.username,
           },
         },
       });
+      if (error) {
+        console.error("Error with signing up new user:", error);
+        alert(`Sign up has failed: ${error.message}`);
+        return;
+      }
+      if (data?.user) {
+        const { error: insertError } = await supabase.from("Users").insert([
+          {
+            id: data.user.id,
+            username: formData.username,
+            email: formData.email,
+          },
+        ]);
+        if (insertError) {
+          console.error("Insert Error:", insertError);
+          alert(`Failed to save user data: ${insertError.message}`);
+          return;
+        }
+        alert(
+          "Sign-up successful! Please check your email for verification link"
+        );
+      }
     } catch (error) {
-      alert(error);
+      console.error("Unexpected error:", error);
+      alert("An unexpected error occurred.");
     }
   };
 
@@ -42,7 +65,7 @@ const Login = () => {
         <input
           type="text"
           placeholder="Username"
-          name="userName"
+          name="username"
           onChange={handleChange}
           className="border"
         />
