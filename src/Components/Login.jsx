@@ -7,7 +7,6 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prevFormData) => ({
@@ -17,32 +16,20 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-    setIsSubmitting(true);
-
+    e.preventDefault();
+    console.log("submitted");
     try {
       const { data, error } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
         options: {
           data: {
-            username: formData.userName,
+            userName: formData.userName,
           },
         },
       });
-
-      if (error) {
-        console.error("Sign-up error:", error);
-        alert(`Error: ${error.message}`);
-      } else {
-        console.log("Sign-up successful:", data);
-        alert("Check your email for the verification link!");
-      }
-    } catch (err) {
-      console.error("Unexpected error:", err);
-      alert("An unexpected error occurred.");
-    } finally {
-      setIsSubmitting(false);
+    } catch (error) {
+      alert(error);
     }
   };
 
@@ -73,8 +60,8 @@ const Login = () => {
           onChange={handleChange}
           className="border"
         />
-        <button type="submit" className="border" disabled={isSubmitting}>
-          {isSubmitting ? "Submitting..." : "Submit"}
+        <button type="submit" className="border">
+          Submit
         </button>
       </form>
     </div>
