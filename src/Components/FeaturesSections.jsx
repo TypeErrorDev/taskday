@@ -5,7 +5,7 @@ const FeaturesSections = () => {
     <div>
       <div className="flex flex-col justify-center items-center bg-[#F8F8F8] h-[850px] mt-10 pb-10 ">
         {/* Top Text */}
-        <div className="flex justify-center items-center flex-col text-center  p-5">
+        <div className="flex justify-center items-center flex-col text-center  p-5 w-[380px] md:w-fit">
           <h1 className="text-2xl font-bold italic">
             Everything you need to manage projects effectively
           </h1>
@@ -15,7 +15,7 @@ const FeaturesSections = () => {
         </div>
         {/* Feature Cards */}
 
-        <div className="flex flex-col justify-center items-start h-[200px] w-96 rounded-lg border shadow-lg">
+        <div className="flex flex-col justify-center items-start h-[200px] w-80 rounded-lg border shadow-lg">
           <div className="h-full m-3">
             <img src={Images.taskIcon} alt="Task Icon" />
             <h1 className="text-xl font-semibold mt-3">Task Management</h1>
@@ -25,7 +25,7 @@ const FeaturesSections = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-start h-[200px] w-96 rounded-lg border shadow-lg mt-5">
+        <div className="flex flex-col justify-center items-start h-[200px] w-80 rounded-lg border shadow-lg mt-5">
           <div className="h-full m-3">
             <img src={Images.analyticsIcon} alt="Task Icon" />
             <h1 className="text-xl font-semibold mt-3">Analytics Dashboard</h1>
@@ -35,7 +35,7 @@ const FeaturesSections = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-start h-[200px] w-96 rounded-lg border shadow-lg mt-5">
+        <div className="flex flex-col justify-center items-start h-[200px] w-80 rounded-lg border shadow-lg mt-5">
           <div className="h-full m-3">
             <img src={Images.clockIcon} alt="Task Icon" />
             <h1 className="text-xl font-semibold mt-3">Time Tracking</h1>

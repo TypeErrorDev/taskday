@@ -14,7 +14,7 @@ const ActiveStats = () => {
       <div className="text-center mt-10">
         {/* Dynamically count projects */}
         <p className="text-purple-700 text-4xl">99.9%</p>
-        <p className="text-2xl text-[#4e4d4d] m-2">Uptime</p>
+        <p className="text-2xl text-[#4e4d4d] mb-5">Uptime</p>
       </div>
     </div>
   );
