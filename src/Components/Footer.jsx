@@ -8,7 +8,8 @@ const Footer = () => {
         <p className="text-xl font-extrabold mb-2">Product</p>
         <p className="text-[#6F6F6F]">Github</p>
         <p className="mb-2 text-[#6F6F6F]">
-          Pricing <span className="text-[10px]">(Coming Soon)</span>
+          Pricing{" "}
+          <span className="text-[10px] text-purple-600">(Coming Soon)</span>
         </p>
       </div>
       <div className="text-center mt-5">
@@ -17,7 +18,8 @@ const Footer = () => {
           <p className="mb-2 text-[#6F6F6F]">Socials</p>
         </Link>
         <p className="text-[#6F6F6F]">
-          Roadmap <span className="text-[10px]">(Coming Soon)</span>
+          Roadmap{" "}
+          <span className="text-[10px] text-purple-600">(Coming Soon)</span>
         </p>
       </div>
     </div>
