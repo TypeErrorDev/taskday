@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../createClient";
 
-const Login = () => {
+const Registration = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -58,7 +58,7 @@ const Login = () => {
 
   return (
     <div>
-      <p>Login</p>
+      <p>Registration</p>
       <form
         className="mt-52 flex flex-col justify-center items-center"
         onSubmit={handleSubmit}
@@ -92,4 +92,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Registration;

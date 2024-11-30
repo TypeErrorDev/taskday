@@ -1,4 +1,4 @@
-import Images from "../../public/assets/Images";
+import Images from "../assets/Images";
 
 const FeaturesSections = () => {
   return (
