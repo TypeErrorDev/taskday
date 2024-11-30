@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Registration from "./Registration";
 import Login from "./Login";
 
 const CTA = () => {
@@ -17,19 +18,16 @@ const CTA = () => {
           </p>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <Link to="/login" element={<Login />}>
+          <Link to="/register" element={<Registration />}>
             <button className="bg-purple-600 shadow-md text-white font-semibold h-9 w-96 my-4 rounded-md hover:transition-transform hover:scale-[1.02] hover:bg-slate-800">
               Get Started Free <span className="font-bold h-4 w-3">→</span>
             </button>
           </Link>
-          <a
-            href="https://github.com/TypeErrorDev/project-tracking"
-            target="_blank"
-          >
+          <Link to="/login" element={<Login />}>
             <button className="border shadow-md font-semibold h-9 w-96 hover:transition-transform hover:scale-[1.02] hover:bg-[#faf9f9] rounded-md">
-              View on Github
+              Already Registered?
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
