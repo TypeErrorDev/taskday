@@ -15,7 +15,7 @@ const CTAbottom = () => {
         </p>
         <Link to="/login" element={<Login />}>
           <button className="mt-5 border shadow-md font-semibold h-9 w-80 hover:transition-transform hover:scale-[1.02] bg-white hover:bg-[#faf9f] rounded-md">
-            Get Started Free <span className="font-bold h-4 w-3">→</span>
+            Get Started For Free <span className="font-bold h-4 w-3">→</span>
           </button>
         </Link>
       </div>
