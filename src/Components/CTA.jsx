@@ -10,7 +10,7 @@ const CTA = () => {
         <span className="text-4xl font-extrabold text-purple-600">
           Confidence
         </span>
-        <div className="flex justify-center items-center text-wrap w-[350px] md:w-[500px] text-center mt-5 text-lg">
+        <div className="flex justify-center items-center text-wrap w-[350px] md:w-[700px] text-center mt-5 text-lg">
           <p className="text-[#6F6F6F] leading-loose">
             Streamline your workflow, boost productivity, and never miss a
             deadline. The ultimate project tracking solution for developers and
@@ -24,7 +24,7 @@ const CTA = () => {
             </button>
           </Link>
           <Link to="/login" element={<Login />}>
-            <button className="border shadow-md font-semibold h-9 w-80 hover:transition-transform hover:scale-[1.02] hover:bg-[#faf9f9] rounded-md md:w-60">
+            <button className="border shadow-md font-semibold h-9 w-80 md:w-60 hover:transition-transform hover:scale-[1.02] hover:bg-[#faf9f9] rounded-md ">
               Already Registered?
             </button>
           </Link>
