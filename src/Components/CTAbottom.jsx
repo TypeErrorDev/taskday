@@ -4,9 +4,9 @@ import Login from "./Login";
 
 const CTAbottom = () => {
   return (
-    <div className="h-[375px] w-screen bg-gradient-to-br from-[#6C38CA] from-40% to-[#B28FF1]">
-      <div className="flex flex-col justify-center items-center h-full p-10">
-        <p className=" text-3xl font-extrabold text-white mb-10">
+    <div className=" flex justify-center h-[375px] w-screen bg-gradient-to-br from-[#6C38CA] from-40% to-[#B28FF1]">
+      <div className="flex flex-col justify-center items-center h-full p-10 md:w-[500px]">
+        <p className=" text-3xl font-extrabold text-white mb-10 text-center">
           Ready to supercharge your project management?
         </p>
         <p className="text-l mt-5 text-white mb-10">
@@ -14,7 +14,7 @@ const CTAbottom = () => {
           WebAppName to track their projects!
         </p>
         <Link to="/login" element={<Login />}>
-          <button className="mt-5 border shadow-md font-semibold h-9 w-80 hover:transition-transform hover:scale-[1.02] bg-white hover:bg-[#faf9f] rounded-md">
+          <button className="mt-5 border shadow-md font-semibold h-9 w-80 md:w-60 hover:transition-transform hover:scale-[1.02] bg-white hover:bg-[#faf9f] rounded-md">
             Get Started For Free <span className="font-bold h-4 w-3">→</span>
           </button>
         </Link>
