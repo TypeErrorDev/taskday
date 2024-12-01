@@ -11,7 +11,7 @@ const CTAbottom = () => {
         </p>
         <p className="text-l mt-5 text-white mb-10">
           Join thousands of developers and people managers who are already using
-          WebAppName to track their projects!
+          TaskDay to track their projects!
         </p>
         <Link to="/login" element={<Login />}>
           <button className="mt-5 border shadow-md font-semibold h-9 w-80 md:w-60 hover:transition-transform hover:scale-[1.02] bg-white hover:bg-[#faf9f] rounded-md">
