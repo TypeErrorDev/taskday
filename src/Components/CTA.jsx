@@ -7,9 +7,7 @@ const CTA = () => {
     <div>
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold mt-16">Track Projects with</h1>
-        <span className="text-4xl font-extrabold text-purple-600">
-          Confidence
-        </span>
+        <span className="text-4xl font-extrabold text-purple-600">TaskDay</span>
         <div className="flex justify-center items-center text-wrap w-[350px] md:w-[700px] text-center mt-5 text-lg">
           <p className="text-[#6F6F6F] leading-loose">
             Streamline your workflow, boost productivity, and never miss a
