@@ -9,7 +9,8 @@ const CTAbottom = () => {
         <p className=" text-4xl font-extrabold text-white mb-5 text-center">
           Ready to supercharge your project management?
         </p>
-        <p className="text-3xl mt-5 text-center text-white mb-10">
+        <p className="text-3xl mt-5 text-white text-center mb-10">
+
           Join thousands of developers and people managers who are already using
           <span className="font-semibold"> TaskDay</span> to track their
           projects!
