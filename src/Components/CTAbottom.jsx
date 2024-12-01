@@ -9,9 +9,10 @@ const CTAbottom = () => {
         <p className=" text-4xl font-extrabold text-white mb-5 text-center">
           Ready to supercharge your project management?
         </p>
-        <p className="text-5xl mt-5 text-white mb-10">
+        <p className="text-3xl mt-5 text-white mb-10">
           Join thousands of developers and people managers who are already using
-          <span className="font-bold"> TaskDay</span> to track their projects!
+          <span className="font-semibold"> TaskDay</span> to track their
+          projects!
         </p>
         <Link to="/login" element={<Login />}>
           <button className="mt-5 border shadow-md font-semibold h-9 w-80 md:w-60 hover:transition-transform hover:scale-[1.02] bg-white hover:bg-[#faf9f] rounded-md">
