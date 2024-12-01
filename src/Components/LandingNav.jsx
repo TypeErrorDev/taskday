@@ -5,7 +5,7 @@ const LandingNav = () => {
         <div className="text-xl m-3 flex flex-row items-center">
           <div className="h-9 w-9 mr-3 bg-purple-600 rounded-md"></div>
           <span className="text-purple-600 font-mono font-bold text-3xl ">
-            Project Tracking
+            TaskDay
           </span>
         </div>
       </div>
