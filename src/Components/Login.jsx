@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../createClient";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const Login = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -15,40 +18,25 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("submitted");
     try {
-      const { data, error } = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email: formData.email,
         password: formData.password,
-        options: {
-          data: {
-            username: formData.username,
-          },
-        },
       });
+
       if (error) {
-        console.error("Error with signing up new user:", error);
-        alert(`Sign up has failed: ${error.message}`);
+        console.error("Error logging in:", error);
+        alert(`Login has failed: ${error.message}`);
         return;
       }
+
       if (data?.user) {
-        const { error: insertError } = await supabase.from("Users").insert([
-          {
-            id: data.user.id,
-            username: formData.username,
-            email: formData.email,
-          },
-        ]);
-        if (insertError) {
-          console.error("Insert Error:", insertError);
-          alert(`Failed to save user data: ${insertError.message}`);
-          return;
-        }
-        alert(
-          "Sign-up successful! Please check your email for verification link"
-        );
+        alert("Login successful!");
+        console.log();
+        // TODO: change to navigate("/dashboard")
+        navigate("/");
       }
     } catch (error) {
       console.error("Unexpected error:", error);
@@ -58,18 +46,14 @@ const Login = () => {
 
   return (
     <div>
-      <p>Login</p>
+      <div className="flex flex-col justify-center items-center mt-20">
+        <div className="h-28 w-24 bg-purple-600 rounded-md"></div>
+        <span>WebApp Name</span>
+      </div>
       <form
         className="mt-52 flex flex-col justify-center items-center"
-        onSubmit={handleSubmit}
+        onSubmit={handleLogin}
       >
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          onChange={handleChange}
-          className="border"
-        />
         <input
           type="text"
           placeholder="Email"
@@ -77,6 +61,7 @@ const Login = () => {
           onChange={handleChange}
           className="border"
         />
+
         <input
           type="password"
           placeholder="Password"
