@@ -2,6 +2,8 @@ import { useState } from "react";
 import { supabase } from "../createClient";
 import { useNavigate } from "react-router-dom";
 
+import LandingNav from "./LandingNav";
+
 const Login = () => {
   const [formData, setFormData] = useState({
     username: "",
@@ -36,7 +38,7 @@ const Login = () => {
         alert("Login successful!");
         console.log();
         // TODO: change to navigate("/dashboard")
-        navigate("/");
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("Unexpected error:", error);
@@ -46,30 +48,36 @@ const Login = () => {
 
   return (
     <div>
-      <div className="flex flex-col justify-center items-center mt-20">
-        <div className="h-28 w-24 bg-purple-600 rounded-md"></div>
-        <span>WebApp Name</span>
-      </div>
+      <LandingNav />
+      <h1 className="text-5xl text-center mt-20 font-semibold">
+        Login to your account
+      </h1>
       <form
-        className="mt-52 flex flex-col justify-center items-center"
+        className=" mt-10 flex flex-col justify-center items-center"
         onSubmit={handleLogin}
       >
         <input
           type="text"
-          placeholder="Email"
+          placeholder="Email Address"
           name="email"
+          required
           onChange={handleChange}
-          className="border"
+          className="border-2 h-12 w-80 rounded-lg px-3 "
         />
 
         <input
           type="password"
           placeholder="Password"
           name="password"
+          required
           onChange={handleChange}
-          className="border"
+          className="border-2 h-12 w-80 rounded-lg px-3 mt-5"
         />
-        <button type="submit" className="border">
+
+        <button
+          type="submit"
+          className="bg-purple-600 shadow-md text-white font-semibold h-9 w-80 my-5 rounded-md hover:transition-transform hover:scale-[1.02] hover:bg-slate-800 md:mx-4"
+        >
           Submit
         </button>
       </form>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { supabase } from "../createClient";
 
+import LandingNav from "./LandingNav";
+
 const Registration = () => {
   const [formData, setFormData] = useState({
     username: "",
@@ -58,34 +60,59 @@ const Registration = () => {
 
   return (
     <div>
-      <p>Registration</p>
+      <LandingNav />
+      <h1 className="text-5xl text-center mt-20 font-semibold">
+        Create Your Account
+      </h1>
       <form
-        className="mt-52 flex flex-col justify-center items-center"
+        className=" mt-10 flex flex-col justify-center items-center"
         onSubmit={handleSubmit}
       >
         <input
           type="text"
-          placeholder="Username"
-          name="username"
+          placeholder="Email Address"
+          name="email"
+          required
           onChange={handleChange}
-          className="border"
+          className="border-2 h-12 w-80 rounded-lg px-3 "
         />
         <input
           type="text"
-          placeholder="Email"
-          name="email"
+          placeholder="Username"
+          name="username"
+          required
           onChange={handleChange}
-          className="border"
+          className="border-2 h-12 w-80 rounded-lg px-3 mt-5"
         />
         <input
           type="password"
           placeholder="Password"
           name="password"
+          required
           onChange={handleChange}
-          className="border"
+          className="border-2 h-12 w-80 rounded-lg px-3 mt-5"
         />
-        <button type="submit" className="border">
+        <label className="text-[#6F6F6F] text-sm mt-5">
+          <input
+            type="checkbox"
+            className="h-4 w-4 border-[#6F6F6F]"
+            required
+          />
+          <span className="text-black p-4">
+            I agree to the Terms of Service
+          </span>
+        </label>
+        <button
+          type="submit"
+          className="bg-purple-600 shadow-md text-white font-semibold h-9 w-80 mt-5 rounded-md  hover:bg-slate-800 md:mx-4"
+        >
           Submit
+        </button>
+        <button
+          type="submit"
+          className="bg-white shadow-md text-black font-semibold h-9 w-80 my-2 rounded-md  hover:bg-slate-800 hover:text-white md:mx-4"
+        >
+          Cancel
         </button>
       </form>
     </div>
