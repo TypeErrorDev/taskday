@@ -36,7 +36,7 @@ const Login = () => {
 
       if (data?.user) {
         alert("Login successful!");
-        console.log();
+        console.log("User data:", data.user);
         navigate("/dashboard");
       }
     } catch (error) {
