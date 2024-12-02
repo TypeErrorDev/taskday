@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import Login from "./Login";
+import Registration from "./Registration";
 
 const CTAbottom = () => {
   return (
@@ -10,12 +10,11 @@ const CTAbottom = () => {
           Ready to supercharge your project management?
         </p>
         <p className="text-3xl mt-5 text-white text-center mb-10">
-
           Join thousands of developers and people managers who are already using
           <span className="font-semibold"> TaskDay</span> to track their
           projects!
         </p>
-        <Link to="/login" element={<Login />}>
+        <Link to="/register" element={<Registration />}>
           <button className="mt-5 border shadow-md font-semibold h-9 w-80 md:w-60 hover:transition-transform hover:scale-[1.02] bg-white hover:bg-[#faf9f] rounded-md">
             Get Started For Free <span className="font-bold h-4 w-3">→</span>
           </button>

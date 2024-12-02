@@ -6,6 +6,7 @@ import LandingPage from "./Components/LandingPage";
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Socials from "./Components/Socials";
+import Dashboard from "./Components/Dashboard";
 
 function App() {
   const navigate = useNavigate();
@@ -36,6 +37,8 @@ function App() {
       />
       <Route path="/login" element={<Login onLogin={handleLogin} />} />
       <Route path="/socials" element={<Socials />} />
+      {/* PROTECT THIS ROUTE FOR ONLY AUTHENTICATED USERS */}
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   );
 }
