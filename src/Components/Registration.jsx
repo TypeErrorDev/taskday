@@ -2,6 +2,7 @@ import { useState } from "react";
 import { supabase } from "../createClient";
 
 import LandingNav from "./LandingNav";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -108,12 +109,14 @@ const Registration = () => {
         >
           Submit
         </button>
-        <button
-          type="submit"
-          className="bg-white shadow-md text-black font-semibold h-9 w-80 my-2 rounded-md  hover:bg-slate-800 hover:text-white md:mx-4"
-        >
-          Cancel
-        </button>
+        <Link to="/">
+          <button
+            type="reset"
+            className="bg-white shadow-md text-black font-semibold h-9 w-80 my-2 rounded-md  hover:bg-slate-800 hover:text-white md:mx-4"
+          >
+            Cancel
+          </button>
+        </Link>
       </form>
     </div>
   );
