@@ -7,8 +7,11 @@ import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Socials from "./Components/Socials";
 import Dashboard from "./Components/Dashboard";
+import PrivateRoute from "./Components/PrivateRoute";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -24,8 +27,12 @@ function App() {
 
   async function fetchUsers() {
     let { data, error } = await supabase.from("Users").select("*");
-
-    setUsers(data);
+    if (error) {
+      console.error("Error fetching users:", error);
+      return;
+    } else {
+      setUsers(data);
+    }
   }
 
   return (
@@ -38,7 +45,14 @@ function App() {
       <Route path="/login" element={<Login onLogin={handleLogin} />} />
       <Route path="/socials" element={<Socials />} />
       {/* PROTECT THIS ROUTE FOR ONLY AUTHENTICATED USERS */}
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute isAuthenticated={isAuthenticated}>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 }

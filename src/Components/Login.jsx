@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../createClient";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import LandingNav from "./LandingNav";
 
@@ -37,7 +37,6 @@ const Login = () => {
       if (data?.user) {
         alert("Login successful!");
         console.log();
-        // TODO: change to navigate("/dashboard")
         navigate("/dashboard");
       }
     } catch (error) {
@@ -76,10 +75,18 @@ const Login = () => {
 
         <button
           type="submit"
-          className="bg-purple-600 shadow-md text-white font-semibold h-9 w-80 my-5 rounded-md hover:transition-transform hover:scale-[1.02] hover:bg-slate-800 md:mx-4"
+          className="bg-purple-600 shadow-md text-white font-semibold h-9 w-80 mt-5 rounded-md hover:transition-transform hover:scale-[1.02] hover:bg-slate-800 md:mx-4"
         >
           Submit
         </button>
+        <Link to="/">
+          <button
+            type="reset"
+            className="bg-white shadow-md text-black font-semibold h-9 w-80 mt-3 rounded-md  hover:bg-slate-800 hover:text-white md:mx-4"
+          >
+            Cancel
+          </button>
+        </Link>
       </form>
     </div>
   );
