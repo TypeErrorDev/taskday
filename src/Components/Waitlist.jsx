@@ -38,7 +38,7 @@ const Waitlist = () => {
   return (
     <div className="bg-[#D0DCEC] flex  flex-col justify-center h-full">
       <div className="flex flex-col justify-center items-center bg-[#EFF6FF] w-11/12 m-5 md:w-[600px] md:m-auto md:mt-5 md:mb-5 rounded-3xl shadow-zinc-600 shadow-lg">
-        <h1 className="text-purple-600 font-serif font-bold text-5xl mt-10">
+        <h1 className="text-purple-600 font-serif font-bold text-4xl mt-10">
           TaskDay Features
         </h1>
         {/* Cards starting */}
