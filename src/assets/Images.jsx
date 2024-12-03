@@ -5,5 +5,6 @@ const Images = {
   calendarIcon: new URL("./calendarIcon.png", import.meta.url).href,
   lightningIcon: new URL("./lightningIcon.png", import.meta.url).href,
   targetIcon: new URL("./targetIcon.png", import.meta.url).href,
+  peopleIcon: new URL("./peopleIcon.png", import.meta.url).href,
 };
 export default Images;
