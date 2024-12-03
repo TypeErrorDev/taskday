@@ -39,8 +39,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/waitlist" element={<Waitlist />} />
+      <Route path="/" element={<Waitlist />} />
+      <Route path="/home" element={<LandingPage />} />
       <Route
         path="/register"
         element={<Registration onLogin={handleLogin} />}
