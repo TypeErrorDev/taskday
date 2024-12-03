@@ -9,6 +9,7 @@ import Registration from "./Components/Registration";
 import Socials from "./Components/Socials";
 import Dashboard from "./Components/Dashboard";
 import PrivateRoute from "./Components/PrivateRoute";
+import LandingPage from "./Components/LandingPage";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -38,12 +39,13 @@ function App() {
 
   return (
     <Routes>
-      {/* <Route path="/" element={<LandingPage />} /> */}
-      <Route path="/" element={<Waitlist />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/waitlist" element={<Waitlist />} />
       <Route
         path="/register"
         element={<Registration onLogin={handleLogin} />}
       />
+
       <Route path="/login" element={<Login onLogin={handleLogin} />} />
       <Route path="/socials" element={<Socials />} />
       {/* PROTECT THIS ROUTE FOR ONLY AUTHENTICATED USERS */}
