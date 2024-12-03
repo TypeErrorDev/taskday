@@ -2,7 +2,8 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { supabase } from "./createClient";
 
-import LandingPage from "./Components/LandingPage";
+// import LandingPage from "./Components/LandingPage";
+import Waitlist from "./Components/Waitlist";
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Socials from "./Components/Socials";
@@ -37,7 +38,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      {/* <Route path="/" element={<LandingPage />} /> */}
+      <Route path="/" element={<Waitlist />} />
       <Route
         path="/register"
         element={<Registration onLogin={handleLogin} />}
