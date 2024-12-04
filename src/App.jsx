@@ -7,7 +7,7 @@ import Waitlist from "./Components/Waitlist";
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Socials from "./Components/Socials";
-import Dashboard from "./Components/Dashboard";
+import Dashboard from "./Components/AuthComponents/Dashboard";
 import PrivateRoute from "./Components/PrivateRoute";
 import LandingPage from "./Components/LandingPage";
 
@@ -63,6 +63,7 @@ function App() {
 
   return (
     <Routes>
+      {/* Public Routes */}
       <Route path="/" element={<Waitlist />} />
       <Route path="/home" element={<LandingPage />} />
       <Route
@@ -71,13 +72,15 @@ function App() {
       />
       <Route path="/login" element={<Login onLogin={handleLogin} />} />
       <Route path="/socials" element={<Socials />} />
-      {/* PROTECT THIS ROUTE FOR ONLY AUTHENTICATED USERS */}
+
+      {/* Authenticated Routes */}
       <Route
         path="/dashboard"
         element={
-          <PrivateRoute isAuthenticated={isAuthenticated}>
-            <Dashboard username={username} signOut={handleLogout} />
-          </PrivateRoute>
+          <Dashboard username={username} signOut={handleLogout} />
+          // <PrivateRoute isAuthenticated={isAuthenticated}>
+          //   <Dashboard username={username} signOut={handleLogout} />
+          // </PrivateRoute>
         }
       />
     </Routes>

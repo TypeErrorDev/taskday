@@ -5,7 +5,7 @@ const PrivateRoute = ({ children, isAuthenticated, ...rest }) => {
   return isAuthenticated ? (
     React.cloneElement(children, { ...rest, ...children.props })
   ) : (
-    <Navigate to="/login" /> // Redirect to login if not authenticated
+    <Navigate to="/login" />
   );
 };
 
