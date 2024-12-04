@@ -12,13 +12,37 @@ import PrivateRoute from "./Components/PrivateRoute";
 import LandingPage from "./Components/LandingPage";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    const savedusername = localStorage.getItem("username");
+    return Boolean(savedusername);
+  });
+  const [username, setUsername] = useState(() => {
+    const savedUsername = localStorage.getItem("username");
+    return savedUsername || "";
+  });
 
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate("/register");
+    setUsername(username);
+    localStorage.setItem("username", username);
+    setIsAuthenticated(true);
+    navigate("/dashboard");
   };
+
+  const handleLogout = () => {
+    setUsername("");
+    setIsAuthenticated(false);
+    localStorage.removeItem("username");
+  };
+
+  useEffect(() => {
+    const savedUsername = localStorage.getItem("username");
+    if (savedUsername) {
+      setUsername(savedUsername);
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   const [users, setUsers] = useState([]);
   console.log(users);
@@ -45,7 +69,6 @@ function App() {
         path="/register"
         element={<Registration onLogin={handleLogin} />}
       />
-
       <Route path="/login" element={<Login onLogin={handleLogin} />} />
       <Route path="/socials" element={<Socials />} />
       {/* PROTECT THIS ROUTE FOR ONLY AUTHENTICATED USERS */}
@@ -53,7 +76,7 @@ function App() {
         path="/dashboard"
         element={
           <PrivateRoute isAuthenticated={isAuthenticated}>
-            <Dashboard />
+            <Dashboard username={username} signOut={handleLogout} />
           </PrivateRoute>
         }
       />

@@ -6,7 +6,12 @@ const Footer = () => {
     <div className="h-[375px] w-screen flex flex-col justify-center items-center ">
       <div className="text-center">
         <p className="text-xl font-extrabold mb-2">Product</p>
-        <p className="text-[#6F6F6F]">Github</p>
+        <a
+          href="https://github.com/TypeErrorDev/project-tracking"
+          target="_blank"
+        >
+          <p className="text-[#6F6F6F]">Github</p>
+        </a>
         <p className="mb-2 text-[#6F6F6F]">
           Pricing{" "}
           <span className="text-[10px] text-purple-600">(Coming Soon)</span>

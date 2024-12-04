@@ -1,7 +1,17 @@
+// ---------------------------
+// Required imports
+// ---------------------------
 import { useState } from "react";
 import { supabase } from "../createClient";
 
+// ---------------------------
+// Import components
+// ---------------------------
 import Images from "../assets/Images";
+
+// ---------------------------
+// Code Begins
+// ---------------------------
 const Waitlist = () => {
   const [waitlistEmail, setWaitlistEmail] = useState({
     email: "",

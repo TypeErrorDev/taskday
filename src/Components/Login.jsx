@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 import LandingNav from "./LandingNav";
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -36,6 +36,7 @@ const Login = () => {
 
       if (data?.user) {
         alert("Login successful!");
+        onLogin(formData.email);
         console.log("User data:", data.user);
         navigate("/dashboard");
       }
