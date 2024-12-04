@@ -4,7 +4,7 @@ import { supabase } from "../createClient";
 import LandingNav from "./LandingNav";
 import { Link } from "react-router-dom";
 
-const Registration = () => {
+const Registration = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -52,6 +52,7 @@ const Registration = () => {
         alert(
           "Sign-up successful! Please check your email for verification link"
         );
+        onLogin(formData.username);
       }
     } catch (error) {
       console.error("Unexpected error:", error);
