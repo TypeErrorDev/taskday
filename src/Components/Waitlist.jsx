@@ -138,7 +138,7 @@ const Waitlist = () => {
 
             <button
               type="submit"
-              className="bg-purple-600 shadow-md shadow-purple-200 text-white font-semibold h-12 w-full mt-2 rounded-md hover:bg-white hover:border-purple-600 hover:border-2 hover:text-purple-600 md:mx-4 md:w-96"
+              className="bg-gradient-to-br from-[#6C38CA] from-40% to-[#B28FF1] shadow-md shadow-purple-200 text-white font-semibold h-12 w-full mt-2 rounded-md  md:mx-4 md:w-96"
             >
               Join our Waitlist
             </button>

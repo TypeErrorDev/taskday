@@ -9,14 +9,17 @@ const Images = {
   peopleIcon: new URL("./peopleIcon.png", import.meta.url).href,
 
   // Social Media Icon
-  xIcon: new URL("./xIcon.png", import.meta.url).href,
-  instagramIcon: new URL("./instagramIcon.png", import.meta.url).href,
-  blueskyIcon: new URL("./blueskyIcon.png", import.meta.url).href,
+  xIcon: new URL("./white_xIcon.png", import.meta.url).href,
+  instagramIcon: new URL("./white_instagramIcon.png", import.meta.url).href,
+  blueskyIcon: new URL("./white_blueskyIcon.png", import.meta.url).href,
 
   // Navbar Icons/images
   bellIcon24: new URL("./bellIcon24.png", import.meta.url).href,
 
   // testing profile pic
   profile_pic: new URL("./profile_pic.jpg", import.meta.url).href,
+
+  // Dashboard Side Navbar Icons
+  projects: new URL("./projectIcon.png", import.meta.url).href,
 };
 export default Images;

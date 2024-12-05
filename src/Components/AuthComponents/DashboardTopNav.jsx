@@ -16,8 +16,7 @@ const DashboardTopNav = () => {
           <img
             src={Images.profile_pic}
             alt="Profile Pic"
-            className="h-12 rounded-full border-4 border-green-600"
-            // border-red-600 for offline users
+            className="h-12 rounded-full border-2 border-black"
           />
           <img
             src={Images.bellIcon24}
@@ -26,7 +25,7 @@ const DashboardTopNav = () => {
           />
         </div>
       </div>
-      <div className="border h-full w-full flex justify-center">
+      <div className="border-b h-full w-full flex justify-center">
         {/* search bar */}
         <form action="submit">
           <input
