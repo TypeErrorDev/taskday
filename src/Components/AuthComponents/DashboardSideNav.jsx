@@ -2,8 +2,8 @@ import Images from "../../assets/Images";
 
 const DashboardSideNav = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-36 h-screen sticky bg-slate-100 border-r">
-      <div className="flex flex-col">
+    <div className="flex flex-col justify-start items-center w-36 md:w-48 h-screen sticky bg-slate-100 border-r">
+      <div className="flex flex-col mt-20">
         <div className="list-none flex justify-evenly items-center w-32 py-1 mb-3 rounded-full hover:bg-[#ab93db74] cursor-pointer">
           <img src={Images.projects} alt="Projects Icon" className="h-5" />
           <p>Projects</p>
@@ -22,17 +22,13 @@ const DashboardSideNav = () => {
             alt="Projects Icon"
             className="h-5 mx-1"
           />
-          <p className="">Analytics</p>
+          <p>Analytics</p>
         </div>
       </div>
       <div className="flex flex-col">
         <div className="list-none flex justify-evenly items-center w-32 py-1 mb-3 rounded-full hover:bg-[#ab93db74] cursor-pointer">
-          <img
-            src={Images.analytics}
-            alt="Projects Icon"
-            className="h-5 mx-1"
-          />
-          <p className="">Analytics</p>
+          <img src={Images.settings} alt="Projects Icon" className="h-5 " />
+          <p>Settings</p>
         </div>
       </div>
     </div>

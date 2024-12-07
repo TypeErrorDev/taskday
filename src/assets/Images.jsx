@@ -23,5 +23,6 @@ const Images = {
   projects: new URL("./projectIconLink.png", import.meta.url).href,
   tasks: new URL("./taskIconLink.png", import.meta.url).href,
   analytics: new URL("./analyticsIconLink.png", import.meta.url).href,
+  settings: new URL("./settingsIconLink.png", import.meta.url).href,
 };
 export default Images;
