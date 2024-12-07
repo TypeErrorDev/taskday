@@ -1,4 +1,4 @@
-import Images from "../../assets/Images";
+import Images from "../../../assets/Images";
 
 const DashboardTopNav = () => {
   // TODO: Create SEARCH functionality => Project Name, Task Name, Username, Email, Tags, Budget Range, Deadline Date Range

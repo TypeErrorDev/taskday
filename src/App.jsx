@@ -7,7 +7,7 @@ import Waitlist from "./Components/Waitlist";
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Socials from "./Components/Socials";
-import Dashboard from "./Components/AuthComponents/Dashboard";
+import Dashboard from "./Components/AuthComponents/Dashboard/Dashboard";
 import PrivateRoute from "./Components/PrivateRoute";
 import LandingPage from "./Components/LandingPage";
 

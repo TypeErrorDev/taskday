@@ -1,5 +1,5 @@
-import DashboardSideNav from "./DashboardSideNav";
-import DashboardTopNav from "./DashboardTopNav";
+import DashboardSideNav from "../Dashboard/DashboardSideNav";
+import DashboardTopNav from "../Dashboard/DashboardTopNav";
 
 const Dashboard = ({ signOut, username }) => {
   return (
