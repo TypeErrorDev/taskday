@@ -4,7 +4,7 @@ import DashboardTopNav from "./DashboardTopNav";
 const Dashboard = ({ signOut, username }) => {
   return (
     <div>
-      <DashboardTopNav />
+      {/* <DashboardTopNav /> */}
       <DashboardSideNav />
       {/* <button onClick={signOut}>Sign out</button> */}
     </div>

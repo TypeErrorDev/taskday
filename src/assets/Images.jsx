@@ -20,6 +20,8 @@ const Images = {
   profile_pic: new URL("./profile_pic.jpg", import.meta.url).href,
 
   // Dashboard Side Navbar Icons
-  projects: new URL("./projectIcon.png", import.meta.url).href,
+  projects: new URL("./projectIconLink.png", import.meta.url).href,
+  tasks: new URL("./taskIconLink.png", import.meta.url).href,
+  analytics: new URL("./analyticsIconLink.png", import.meta.url).href,
 };
 export default Images;

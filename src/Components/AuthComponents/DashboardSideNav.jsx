@@ -2,14 +2,38 @@ import Images from "../../assets/Images";
 
 const DashboardSideNav = () => {
   return (
-    <div className="container border-r w-[274px] h-[845px]">
-      <div className="flex justify-center items-center h-[775px] ">
-        <button className="border-2 rounded-xl w-56 h-10 bg-gradient-to-br from-[#1B0EF1] from-27% to-[#8743FF] text-white text-xl text-center">
-          New Project
-        </button>
+    <div className="flex flex-col justify-center items-center w-36 h-screen sticky bg-slate-100 border-r">
+      <div className="flex flex-col">
+        <div className="list-none flex justify-evenly items-center w-32 py-1 mb-3 rounded-full hover:bg-[#ab93db74] cursor-pointer">
+          <img src={Images.projects} alt="Projects Icon" className="h-5" />
+          <p>Projects</p>
+        </div>
       </div>
-      <div className="flex justify-around items-center border-t-[1px] h-[70px]">
-        <img src={Images.projects} alt="X Icon" className="h-9" />
+      <div className="flex flex-col">
+        <div className="list-none flex justify-evenly items-center w-32 py-1 mb-3 rounded-full hover:bg-[#ab93db74] cursor-pointer">
+          <img src={Images.tasks} alt="Projects Icon" className="h-5" />
+          <p className="mr-5">Tasks</p>
+        </div>
+      </div>
+      <div className="flex flex-col">
+        <div className="list-none flex justify-evenly items-center w-32 py-1 mb-3 rounded-full hover:bg-[#ab93db74] cursor-pointer">
+          <img
+            src={Images.analytics}
+            alt="Projects Icon"
+            className="h-5 mx-1"
+          />
+          <p className="">Analytics</p>
+        </div>
+      </div>
+      <div className="flex flex-col">
+        <div className="list-none flex justify-evenly items-center w-32 py-1 mb-3 rounded-full hover:bg-[#ab93db74] cursor-pointer">
+          <img
+            src={Images.analytics}
+            alt="Projects Icon"
+            className="h-5 mx-1"
+          />
+          <p className="">Analytics</p>
+        </div>
       </div>
     </div>
   );
