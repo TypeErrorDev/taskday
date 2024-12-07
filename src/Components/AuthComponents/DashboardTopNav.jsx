@@ -22,6 +22,18 @@ const DashboardTopNav = () => {
           />
         </form>
       </div>
+      <div className="hidden lg:flex lg:justify-center lg:items-center mr-10">
+        <img
+          src={Images.bellIcon24}
+          alt="Notification Icon"
+          className="h-10 w-12 mr-10"
+        />
+        <img
+          src={Images.profile_pic}
+          alt="Profile Pic"
+          className="rounded-full h-16 w-[70px] border-4 border-purple-600"
+        />
+      </div>
     </div>
   );
 };
