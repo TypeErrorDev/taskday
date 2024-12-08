@@ -9,11 +9,11 @@ const DashboardTopNav = () => {
 
   return (
     <div className="fixed top-0 left-0 right-0 h-20 border-b bg-white z-10 flex">
-      <div className="border-r w-36 md:min-w-48 h-[80px] flex justify-center items-center text-4xl font-mono text-purple-600">
+      <div className="border-r w-36 md:max-w-52 h-[80px] flex justify-center items-center text-4xl font-mono text-purple-600">
         <p>TaskDay</p>
       </div>
       <div className="w-full flex justify-center items-center">
-        <form action="submit">
+        <form action="submit" className="hidden lg:block">
           <input
             type="text"
             placeholder="Search for a Project or Task"
