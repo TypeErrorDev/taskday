@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import DashboardSideNav from "../Dashboard/DashboardSideNav";
 import DashboardTopNav from "../Dashboard/DashboardTopNav";
@@ -7,13 +7,23 @@ import Tasks from "./Tasks";
 import Analytics from "./Analytics";
 import Settings from "./Settings";
 
-const Dashboard = ({ signOut, username }) => {
-  const [activeComponent, setActiveComponent] = useState("projects");
+const Dashboard = ({ signOut, username, projects }) => {
+  const [activeComponent, setActiveComponent] = useState("Projects");
+  const [projectList, setProjectList] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const data = await projects();
+      console.log("Fetched Projects:", data);
+      setProjectList(data);
+    };
+    fetchProjects();
+  }, [projects]);
 
   const renderComponent = () => {
     switch (activeComponent) {
       case "Projects":
-        return <Projects />;
+        return <Projects projects={projectList} />;
       case "Tasks":
         return <Tasks />;
       case "Analytics":
@@ -21,7 +31,7 @@ const Dashboard = ({ signOut, username }) => {
       case "Settings":
         return <Settings />;
       default:
-        return <Projects />;
+        return <Projects projects={projectList} />;
     }
   };
 

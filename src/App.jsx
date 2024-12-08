@@ -46,7 +46,6 @@ function App() {
   }, []);
 
   const [users, setUsers] = useState([]);
-  console.log(users);
 
   useEffect(() => {
     fetchUsers();
@@ -61,6 +60,16 @@ function App() {
       setUsers(data);
     }
   }
+
+  const fetchProjects = async () => {
+    const { data, error } = await supabase.from("Projects").select("*");
+    if (error) {
+      console.error("Error fetching projects:", error);
+      return [];
+    }
+    console.log("Supabase Projects Data:", data); // Debugging line
+    return data;
+  };
 
   return (
     <Routes>
@@ -77,7 +86,11 @@ function App() {
       <Route
         path="/dashboard"
         element={
-          <Dashboard username={username} signOut={handleLogout} />
+          <Dashboard
+            username={username}
+            signOut={handleLogout}
+            projects={fetchProjects}
+          />
           // <PrivateRoute isAuthenticated={isAuthenticated}>
           //   <Dashboard username={username} signOut={handleLogout} />
           // </PrivateRoute>

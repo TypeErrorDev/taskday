@@ -1,21 +1,19 @@
-const Projects = () => {
+const Projects = ({ projects }) => {
+  console.log("Projects Prop:", projects);
+  if (!projects || projects.length === 0) {
+    return <div>No projects available</div>;
+  }
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="h-60 w-[793px] bg-slate-500 rounded-lg">
-        Projects Content
-      </div>
-      <div className="h-60 w-[793px] bg-slate-500 rounded-lg">
-        Projects Content
-      </div>
-      <div className="h-60 w-[793px] bg-slate-500 rounded-lg">
-        Projects Content
-      </div>
-      <div className="h-60 w-[793px] bg-slate-500 rounded-lg">
-        Projects Content
-      </div>
-      <div className="h-60 w-[793px] bg-slate-500 rounded-lg">
-        Projects Content
-      </div>
+      <h1>Projects</h1>
+      <ul>
+        {projects.map((project) => (
+          <li key={project.id} className="border p-2 m-2 w-full max-w-md">
+            <h2 className="text-xl font-bold">{project.name}</h2>
+            <p>{project.description}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
