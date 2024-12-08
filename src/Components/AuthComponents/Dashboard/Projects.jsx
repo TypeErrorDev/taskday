@@ -13,6 +13,7 @@ const Projects = ({ projects }) => {
           >
             <h2 className="text-xl font-bold">{project.name}</h2>
             <p>Projets Budget: ${project.budget.toLocaleString()}</p>
+            {/* <p>Assigned To: {project.assignee}</p> */}
             <p>{project.deadline}</p>
             <p>{project.description}</p>
             <div className="flex flex-wrap gap-2 mt-2">

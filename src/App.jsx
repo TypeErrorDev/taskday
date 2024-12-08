@@ -35,6 +35,8 @@ function App() {
     setIsAuthenticated(false);
     localStorage.removeItem("username");
     supabase.auth.signOut();
+    console.log("User signed out successfully!");
+    navigate("/login");
   };
 
   useEffect(() => {
@@ -58,6 +60,7 @@ function App() {
       return;
     } else {
       setUsers(data);
+      console.log("Supabase Users Data:", data); // Debugging line
     }
   }
 
@@ -86,14 +89,13 @@ function App() {
       <Route
         path="/dashboard"
         element={
-          <Dashboard
-            username={username}
-            signOut={handleLogout}
-            projects={fetchProjects}
-          />
-          // <PrivateRoute isAuthenticated={isAuthenticated}>
-          //   <Dashboard username={username} signOut={handleLogout} />
-          // </PrivateRoute>
+          <PrivateRoute isAuthenticated={isAuthenticated}>
+            <Dashboard
+              username={username}
+              signOut={handleLogout}
+              projects={fetchProjects}
+            />
+          </PrivateRoute>
         }
       />
     </Routes>

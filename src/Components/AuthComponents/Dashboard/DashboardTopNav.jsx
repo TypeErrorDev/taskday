@@ -1,6 +1,6 @@
 import Images from "../../../assets/Images";
 
-const DashboardTopNav = () => {
+const DashboardTopNav = ({ signOut }) => {
   // TODO: Create SEARCH functionality => Project Name, Task Name, Username, Email, Tags, Budget Range, Deadline Date Range
 
   // TODO: Create NOTIFICATION functionality => Project Assigned/status updated/closed, Task Assigned/status updated/closed, Project over budget, deadline date approaching
@@ -13,6 +13,9 @@ const DashboardTopNav = () => {
         <p>TaskDay</p>
       </div>
       <div className="w-full flex justify-center items-center">
+        <button className="h-20 w-40 border" onClick={signOut}>
+          Signout
+        </button>
         <form action="submit" className="hidden lg:block">
           <input
             type="text"

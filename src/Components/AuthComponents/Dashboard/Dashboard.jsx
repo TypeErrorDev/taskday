@@ -39,7 +39,7 @@ const Dashboard = ({ signOut, username, projects }) => {
 
   return (
     <div className="flex flex-col h-screen">
-      <DashboardTopNav />
+      <DashboardTopNav signOut={signOut} />
       <div className="flex flex-1 mt-20 ml-36 md:ml-48">
         <DashboardSideNav setActiveComponent={setActiveComponent} />
         <div className="content flex flex-col items-center overflow-y-auto w-full ">
