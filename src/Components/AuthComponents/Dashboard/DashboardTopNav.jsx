@@ -17,7 +17,7 @@ const DashboardTopNav = () => {
         <form action="submit">
           <input
             type="text"
-            placeholder="Search for anything"
+            placeholder="Search for a Project or Task"
             className="border shadow-md rounded-lg p-2 w-80"
           />
         </form>
