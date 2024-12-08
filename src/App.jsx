@@ -23,9 +23,9 @@ function App() {
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    setUsername(username);
-    localStorage.setItem("username", username);
+  const handleLogin = (loginUsername) => {
+    setUsername(loginUsername);
+    localStorage.setItem("username", loginUsername);
     setIsAuthenticated(true);
     navigate("/dashboard");
   };
@@ -34,6 +34,7 @@ function App() {
     setUsername("");
     setIsAuthenticated(false);
     localStorage.removeItem("username");
+    supabase.auth.signOut();
   };
 
   useEffect(() => {
@@ -72,7 +73,6 @@ function App() {
       />
       <Route path="/login" element={<Login onLogin={handleLogin} />} />
       <Route path="/socials" element={<Socials />} />
-
       {/* Authenticated Routes */}
       <Route
         path="/dashboard"

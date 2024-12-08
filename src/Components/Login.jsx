@@ -19,7 +19,6 @@ const Login = ({ onLogin }) => {
       [e.target.name]: e.target.value,
     }));
   };
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -35,9 +34,22 @@ const Login = ({ onLogin }) => {
       }
 
       if (data?.user) {
+        // Fetch the username from the Users table
+        const { data: userData, error: userError } = await supabase
+          .from("Users")
+          .select("username")
+          .eq("id", data.user.id)
+          .single();
+
+        if (userError) {
+          console.error("Error fetching username:", userError);
+          alert("Could not retrieve username");
+          return;
+        }
+
+        // Call onLogin with the fetched username
+        onLogin(userData.username);
         alert("Login successful!");
-        onLogin(formData.email);
-        console.log("User data:", data.user);
         navigate("/dashboard");
       }
     } catch (error) {
@@ -45,6 +57,32 @@ const Login = ({ onLogin }) => {
       alert("An unexpected error occurred.");
     }
   };
+
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const { data, error } = await supabase.auth.signInWithPassword({
+  //       email: formData.email,
+  //       password: formData.password,
+  //     });
+
+  //     if (error) {
+  //       console.error("Error logging in:", error);
+  //       alert(`Login has failed: ${error.message}`);
+  //       return;
+  //     }
+
+  //     if (data?.user) {
+  //       alert("Login successful!");
+  //       onLogin(formData.email);
+  //       console.log("User data:", data.user);
+  //       navigate("/dashboard");
+  //     }
+  //   } catch (error) {
+  //     console.error("Unexpected error:", error);
+  //     alert("An unexpected error occurred.");
+  //   }
+  // };
 
   return (
     <div>
