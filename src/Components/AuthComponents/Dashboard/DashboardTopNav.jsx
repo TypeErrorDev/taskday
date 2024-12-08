@@ -8,8 +8,7 @@ const DashboardTopNav = () => {
   // TODO: Add svg notification circle for new notifications
 
   return (
-    // Nav Container
-    <div className="hidden md:flex h-20 border-b">
+    <div className="fixed top-0 left-0 right-0 h-20 border-b bg-white z-10 flex">
       <div className="border-r w-36 md:min-w-48 h-[80px] flex justify-center items-center text-4xl font-mono text-purple-600">
         <p>TaskDay</p>
       </div>

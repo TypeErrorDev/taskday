@@ -28,9 +28,9 @@ const Dashboard = ({ signOut, username }) => {
   return (
     <div className="flex flex-col h-screen">
       <DashboardTopNav />
-      <div className="flex flex-1">
+      <div className="flex flex-1 mt-20 ml-36 md:ml-48">
         <DashboardSideNav setActiveComponent={setActiveComponent} />
-        <div className="content">
+        <div className="content flex flex-col items-center m-auto overflow-y-auto w-full">
           <div>Welcome {username}</div>
           {renderComponent()}
         </div>
