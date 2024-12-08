@@ -15,7 +15,9 @@ const Dashboard = ({ signOut, username, projects }) => {
     const fetchProjects = async () => {
       const data = await projects();
       console.log("Fetched Projects:", data);
-      setProjectList(data);
+      setTimeout(() => {
+        setProjectList(data);
+      }, 500);
     };
     fetchProjects();
   }, [projects]);
