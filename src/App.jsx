@@ -39,6 +39,7 @@ function App() {
     navigate("/login");
   };
 
+  // Check if the user is already authenticated
   useEffect(() => {
     const savedUsername = localStorage.getItem("username");
     if (savedUsername) {
@@ -49,10 +50,12 @@ function App() {
 
   const [users, setUsers] = useState([]);
 
+  // useEffect to fetch users from the database
   useEffect(() => {
     fetchUsers();
   }, []);
 
+  // Function to fetch users from the database
   async function fetchUsers() {
     let { data, error } = await supabase.from("Users").select("*");
     if (error) {
@@ -60,17 +63,26 @@ function App() {
       return;
     } else {
       setUsers(data);
-      console.log("Supabase Users Data:", data); // Debugging line
     }
   }
 
+  // Function to fetch projects from the database
   const fetchProjects = async () => {
     const { data, error } = await supabase.from("Projects").select("*");
     if (error) {
       console.error("Error fetching projects:", error);
       return [];
     }
-    console.log("Supabase Projects Data:", data); // Debugging line
+    return data;
+  };
+
+  const fetchTasks = async () => {
+    const { data, error } = await supabase.from("Tasks").select("*");
+    if (error) {
+      console.error("Error fetching tasks:", error);
+      return [];
+    }
+    console.log("Supabase Tasks Data:", data); // Debugging line
     return data;
   };
 
@@ -94,6 +106,7 @@ function App() {
               username={username}
               signOut={handleLogout}
               projects={fetchProjects}
+              tasks={fetchTasks}
             />
           </PrivateRoute>
         }

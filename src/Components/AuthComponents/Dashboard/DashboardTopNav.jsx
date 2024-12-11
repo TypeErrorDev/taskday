@@ -13,7 +13,10 @@ const DashboardTopNav = ({ signOut }) => {
         <p>TaskDay</p>
       </div>
       <div className="w-full flex justify-center items-center">
-        <button className="h-20 w-40 border" onClick={signOut}>
+        <button
+          className="w-40 border mr-5 text-white bg-indigo-500"
+          onClick={signOut}
+        >
           Signout
         </button>
         <form action="submit" className="hidden lg:block">

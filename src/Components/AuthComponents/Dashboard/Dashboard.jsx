@@ -14,7 +14,6 @@ const Dashboard = ({ signOut, username, projects }) => {
   useEffect(() => {
     const fetchProjects = async () => {
       const data = await projects();
-      console.log("Fetched Projects:", data);
       setTimeout(() => {
         setProjectList(data);
       }, 500);

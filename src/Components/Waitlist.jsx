@@ -37,7 +37,6 @@ const Waitlist = () => {
         return;
       }
       alert("Successfully added to waitlist!");
-      console.log("Waitlist data:", data);
       setWaitlistEmail({ email: "" });
     } catch (error) {
       console.error("Unexpected error:", error);

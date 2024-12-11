@@ -20,7 +20,6 @@ const Registration = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submitted");
     try {
       const { data, error } = await supabase.auth.signUp({
         email: formData.email,
