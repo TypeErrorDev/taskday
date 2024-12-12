@@ -2,7 +2,6 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { supabase } from "./createClient";
 
-// import LandingPage from "./Components/LandingPage";
 import Waitlist from "./Components/Waitlist";
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
@@ -20,6 +19,7 @@ function App() {
     const savedUsername = localStorage.getItem("username");
     return savedUsername || "";
   });
+  const [users, setUsers] = useState([]);
 
   const navigate = useNavigate();
 
@@ -48,8 +48,6 @@ function App() {
     }
   }, []);
 
-  const [users, setUsers] = useState([]);
-
   // useEffect to fetch users from the database
   useEffect(() => {
     fetchUsers();
@@ -62,7 +60,8 @@ function App() {
       console.error("Error fetching users:", error);
       return;
     } else {
-      setUsers(data);
+      // console.log(data);
+      return setUsers(data);
     }
   }
 
@@ -82,7 +81,6 @@ function App() {
       console.error("Error fetching tasks:", error);
       return [];
     }
-    console.log("Supabase Tasks Data:", data); // Debugging line
     return data;
   };
 

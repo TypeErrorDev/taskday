@@ -26,6 +26,7 @@ const Login = ({ onLogin }) => {
         email: formData.email,
         password: formData.password,
       });
+      console.log(data.user.id, error);
 
       if (error) {
         console.error("Error logging in:", error);
@@ -34,7 +35,6 @@ const Login = ({ onLogin }) => {
       }
 
       if (data?.user) {
-        // Fetch the username from the Users table
         const { data: userData, error: userError } = await supabase
           .from("Users")
           .select("username")
@@ -46,8 +46,6 @@ const Login = ({ onLogin }) => {
           alert("Could not retrieve username");
           return;
         }
-
-        // Call onLogin with the fetched username
         onLogin(userData.username);
         alert("Login successful!");
         navigate("/dashboard");
@@ -57,32 +55,6 @@ const Login = ({ onLogin }) => {
       alert("An unexpected error occurred.");
     }
   };
-
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const { data, error } = await supabase.auth.signInWithPassword({
-  //       email: formData.email,
-  //       password: formData.password,
-  //     });
-
-  //     if (error) {
-  //       console.error("Error logging in:", error);
-  //       alert(`Login has failed: ${error.message}`);
-  //       return;
-  //     }
-
-  //     if (data?.user) {
-  //       alert("Login successful!");
-  //       onLogin(formData.email);
-  //       console.log("User data:", data.user);
-  //       navigate("/dashboard");
-  //     }
-  //   } catch (error) {
-  //     console.error("Unexpected error:", error);
-  //     alert("An unexpected error occurred.");
-  //   }
-  // };
 
   return (
     <div>

@@ -1,6 +1,4 @@
 const Projects = ({ projects, tasks }) => {
-  /* TODO: need to associate the UUID => username */
-
   if (!projects || projects.length === 0) {
     return <div>Loading your projects!</div>;
   }
@@ -26,9 +24,9 @@ const Projects = ({ projects, tasks }) => {
 
   const getProgress = (tasks) => {
     if (!Array.isArray(tasks) || tasks.length === 0) {
+      console.log("No tasks found");
       return 0;
     }
-
     const totalTasks = tasks.length;
     const completedTasks = tasks.filter(
       (task) =>
@@ -63,10 +61,11 @@ const Projects = ({ projects, tasks }) => {
             </div>
             <div className="mt-5 italic text-sm">Progress</div>
             <div className="w-full h-2 bg-gray-200 rounded-lg mt-5 mb-5">
-              <div
+              {/* Progress filling */}
+              {/* <div
                 className="h-2 bg-gradient-to-r from-[#1141ff5d] to-[#9693AC] rounded-lg"
                 style={{ width: `${getProgress(project.tasks)}%` }}
-              />
+              /> */}
             </div>
           </li>
         ))}
