@@ -42,7 +42,7 @@ const Dashboard = ({ signOut, username, projects }) => {
       <div className="flex flex-1 mt-20 ml-36 md:ml-48">
         <DashboardSideNav setActiveComponent={setActiveComponent} />
         <div className="content flex flex-col items-center overflow-y-auto w-full ">
-          <div className="text-7xl font-extrabold bg-gradient-to-br from-20% from-[#8743FF] to-[#4136F1] bg-clip-text text-transparent">
+          <div className="text-7xl font-extrabold bg-gradient-to-br from-20% from-[#8743FF] to-[#4136F1] bg-clip-text text-transparent text-center">
             Welcome back, {username}!
           </div>
           {renderComponent()}

@@ -15,6 +15,8 @@ const Images = {
 
   // Navbar Icons/images
   bellIcon24: new URL("./bellIcon24.png", import.meta.url).href,
+  TDLogo: new URL("./TDLogo.png", import.meta.url).href,
+  logo: new URL("./Logo1.png", import.meta.url).href,
 
   // testing profile pic
   profile_pic: new URL("./profile_pic.jpg", import.meta.url).href,

@@ -9,8 +9,8 @@ const DashboardTopNav = ({ signOut }) => {
 
   return (
     <div className="fixed top-0 left-0 right-0 h-20 border-b bg-white z-10 flex">
-      <div className="border-r w-36 md:max-w-52 h-[80px] flex justify-center items-center text-4xl font-mono text-purple-600">
-        <p>TaskDay</p>
+      <div className="border-r w-[236px] h-[80px] flex justify-center items-center text-4xl font-mono text-purple-600">
+        <img src={Images.logo} alt="TaskDay Logo" className="h-20 w-44" />
       </div>
       <div className="w-full flex justify-center items-center">
         <button

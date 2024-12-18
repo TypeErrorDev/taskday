@@ -81,8 +81,9 @@ function App() {
       console.error("Error fetching tasks:", error);
       return [];
     }
-    return data;
+    console.log("fetch tasks", data);
   };
+  fetchTasks();
 
   return (
     <Routes>
