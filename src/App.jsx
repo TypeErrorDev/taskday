@@ -20,6 +20,8 @@ function App() {
     return savedUsername || "";
   });
   const [users, setUsers] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
   const navigate = useNavigate();
 
@@ -48,9 +50,11 @@ function App() {
     }
   }, []);
 
-  // useEffect to fetch users from the database
+  // useEffect to fetch users, projects, and tasks from the database
   useEffect(() => {
     fetchUsers();
+    fetchProjects();
+    fetchTasks();
   }, []);
 
   // Function to fetch users from the database
@@ -60,8 +64,7 @@ function App() {
       console.error("Error fetching users:", error);
       return;
     } else {
-      // console.log(data);
-      return setUsers(data);
+      setUsers(data);
     }
   }
 
@@ -72,18 +75,18 @@ function App() {
       console.error("Error fetching projects:", error);
       return [];
     }
-    return data;
+    setProjects(data);
   };
 
+  // Function to fetch tasks from the database
   const fetchTasks = async () => {
     const { data, error } = await supabase.from("Tasks").select("*");
     if (error) {
       console.error("Error fetching tasks:", error);
       return [];
     }
-    console.log("fetch tasks", data);
+    setTasks(data);
   };
-  fetchTasks();
 
   return (
     <Routes>
@@ -104,8 +107,8 @@ function App() {
             <Dashboard
               username={username}
               signOut={handleLogout}
-              projects={fetchProjects}
-              tasks={fetchTasks}
+              projects={projects}
+              tasks={tasks}
             />
           </PrivateRoute>
         }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import DashboardSideNav from "../Dashboard/DashboardSideNav";
 import DashboardTopNav from "../Dashboard/DashboardTopNav";
@@ -7,32 +7,21 @@ import Tasks from "./Tasks";
 import Analytics from "./Analytics";
 import Settings from "./Settings";
 
-const Dashboard = ({ signOut, username, projects }) => {
+const Dashboard = ({ signOut, username, projects, tasks }) => {
   const [activeComponent, setActiveComponent] = useState("Projects");
-  const [projectList, setProjectList] = useState([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const data = await projects();
-      setTimeout(() => {
-        setProjectList(data);
-      }, 500);
-    };
-    fetchProjects();
-  }, [projects]);
 
   const renderComponent = () => {
     switch (activeComponent) {
       case "Projects":
-        return <Projects projects={projectList} />;
+        return <Projects projects={projects} tasks={tasks} />;
       case "Tasks":
-        return <Tasks />;
+        return <Tasks tasks={tasks} />;
       case "Analytics":
-        return <Analytics />;
+        return <Analytics projects={projects} tasks={tasks} />;
       case "Settings":
         return <Settings />;
       default:
-        return <Projects projects={projectList} />;
+        return <Projects projects={projects} tasks={tasks} />;
     }
   };
 

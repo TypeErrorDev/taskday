@@ -3,6 +3,10 @@ const Projects = ({ projects, tasks }) => {
     return <div>Loading your projects!</div>;
   }
 
+  if (!tasks) {
+    tasks = [];
+  }
+
   const timeAgo = (dateString) => {
     const now = new Date();
     const date = new Date(dateString);
