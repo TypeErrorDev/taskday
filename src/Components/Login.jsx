@@ -19,7 +19,6 @@ const Login = ({ onLogin }) => {
       [e.target.name]: e.target.value,
     }));
   };
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -27,6 +26,7 @@ const Login = ({ onLogin }) => {
         email: formData.email,
         password: formData.password,
       });
+      console.log(data.user.id, error);
 
       if (error) {
         console.error("Error logging in:", error);
@@ -35,9 +35,19 @@ const Login = ({ onLogin }) => {
       }
 
       if (data?.user) {
+        const { data: userData, error: userError } = await supabase
+          .from("Users")
+          .select("username")
+          .eq("id", data.user.id)
+          .single();
+
+        if (userError) {
+          console.error("Error fetching username:", userError);
+          alert("Could not retrieve username");
+          return;
+        }
+        onLogin(userData.username);
         alert("Login successful!");
-        onLogin(formData.email);
-        console.log("User data:", data.user);
         navigate("/dashboard");
       }
     } catch (error) {

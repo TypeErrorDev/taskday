@@ -20,7 +20,6 @@ const Registration = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submitted");
     try {
       const { data, error } = await supabase.auth.signUp({
         email: formData.email,
@@ -39,7 +38,6 @@ const Registration = ({ onLogin }) => {
       if (data?.user) {
         const { error: insertError } = await supabase.from("Users").insert([
           {
-            id: data.user.id,
             username: formData.username,
             email: formData.email,
           },
