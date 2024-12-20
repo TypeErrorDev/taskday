@@ -19,6 +19,7 @@ const Login = ({ onLogin }) => {
       [e.target.name]: e.target.value,
     }));
   };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -38,7 +39,7 @@ const Login = ({ onLogin }) => {
         const { data: userData, error: userError } = await supabase
           .from("Users")
           .select("username")
-          .eq("id", data.user.id)
+          .eq("email", formData.email)
           .single();
 
         if (userError) {
