@@ -1,0 +1,36 @@
+Create and switch to new feature branch:
+
+git checkout -b feature/add-search
+
+Make your changes and commit them:
+
+git add .
+git commit -m "added search functionality"
+
+Push your feature branch:
+
+git push origin feature/add-search
+
+When feature is working:
+
+Go to GitHub website
+You'll usually see a yellow banner suggesting to "Compare & pull request" for your recently pushed branch
+Click that button
+Add a simple description like "Added search functionality to recipe page"
+Click "Create pull request"
+Since it's your project, you can immediately click "Merge pull request"
+
+
+Clean up locally:
+
+git checkout main
+git pull origin main
+git branch -d feature/add-search
+This simplified version gives you practice with:
+
+Creating branches
+Working with pull requests
+Basic GitHub workflow
+Keeping your code organized
+
+It's a great way to build good habits for when you work on team projects later! Would you like me to create a more detailed example with a specific feature?
