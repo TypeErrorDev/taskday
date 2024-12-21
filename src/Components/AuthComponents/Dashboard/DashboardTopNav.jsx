@@ -1,12 +1,24 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Images from "../../../assets/Images";
 
-const DashboardTopNav = ({ signOut }) => {
-  // TODO: Create SEARCH functionality => Project Name, Task Name, Username, Email, Tags, Budget Range, Deadline Date Range
+const DashboardTopNav = ({ signOut, onSearch }) => {
+  const navigate = useNavigate();
 
+  // TODO: Create SEARCH functionality => Project Name, Task Name, Username, Email, Tags, Budget Range, Deadline Date Range
+  const [searchQuery, setSearchQuery] = useState("");
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    onSearch(e.target.value);
+  };
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/search?query=${searchQuery}`);
+  };
   // TODO: Create NOTIFICATION functionality => Project Assigned/status updated/closed, Task Assigned/status updated/closed, Project over budget, deadline date approaching
 
   // TODO: Add svg notification circle for new notifications
-
   return (
     <div className="fixed top-0 left-0 right-0 h-20 border-b bg-white z-10 flex">
       <div className="border-r w-[236px] h-[80px] flex justify-center items-center text-4xl font-mono text-purple-600">
@@ -19,11 +31,17 @@ const DashboardTopNav = ({ signOut }) => {
         >
           Signout
         </button>
-        <form action="submit" className="hidden lg:block">
+        <form
+          onSubmit={handleSearchSubmit}
+          action="submit"
+          className="hidden lg:block"
+        >
           <input
             type="text"
             placeholder="Search for a Project or Task"
             className="border shadow-md rounded-lg p-2 w-80"
+            value={searchQuery}
+            onChange={handleSearchChange}
           />
         </form>
       </div>

@@ -4,10 +4,6 @@ import ProjectsSkeleton from "./ProjectsSkeleton";
 const Projects = ({ projects, tasks, username }) => {
   if (!projects || projects.length === 0) {
     return (
-      // <div>
-      //   <ProjectsSkeleton />
-      // </div>
-      // skeleton loader
       <div className="flex flex-col justify-center items-center w-full opacity-70">
         {[...Array(3)].map((_, index) => (
           <ProjectsSkeleton key={index} />

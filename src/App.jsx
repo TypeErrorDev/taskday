@@ -9,6 +9,7 @@ import Socials from "./Components/Socials";
 import Dashboard from "./Components/AuthComponents/Dashboard/Dashboard";
 import PrivateRoute from "./Components/PrivateRoute";
 import LandingPage from "./Components/LandingPage";
+import SearchResult from "./Components/AuthComponents/Dashboard/SearchResults";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -110,6 +111,14 @@ function App() {
               projects={projects}
               tasks={tasks}
             />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/search"
+        element={
+          <PrivateRoute isAuthenticated={isAuthenticated}>
+            <SearchResult projects={projects} tasks={tasks} />
           </PrivateRoute>
         }
       />
