@@ -144,7 +144,7 @@ const Waitlist = () => {
             <div className="flex justify-center items-center mt-5 ">
               <img src={Images.peopleIcon} alt="People Icon" />
               <p className="pl-3 text-[#6F6F6F] text-xl">
-                250+ professionals are waiting
+                250+ professionals are on the waitlist
               </p>
             </div>
           </form>

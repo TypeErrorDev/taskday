@@ -19,7 +19,6 @@ const DashboardTopNav = ({ signOut }) => {
         >
           Signout
         </button>
-        ds
         <form action="submit" className="hidden lg:block">
           <input
             type="text"

@@ -32,23 +32,28 @@ const Registration = ({ onLogin }) => {
       if (error) throw error;
 
       if (data?.user) {
-        // Use the ID from the Auth response to link the database record
+        // IMPORTANT: Include the 'id' from Supabase Auth
         const { error: insertError } = await supabase.from("Users").insert([
           {
-            id: data.user.id, // Linking the Auth UUID to the table row
+            id: data.user.id,
             username: formData.username,
             email: formData.email,
           },
         ]);
 
-        if (insertError) throw insertError;
+        if (insertError) {
+          console.error("Insert Error details:", insertError);
+          throw new Error("Database error saving new user profile.");
+        }
 
-        alert("Sign-up successful! Check your email for a verification link.");
+        alert(
+          "Sign-up successful! Please check your email for a verification link.",
+        );
         onLogin(formData.username);
       }
     } catch (error) {
       console.error("Registration error:", error.message);
-      alert(`Error: ${error.message}`);
+      alert(`Registration Issue: ${error.message}`);
     }
   };
 
