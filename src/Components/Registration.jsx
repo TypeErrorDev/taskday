@@ -25,36 +25,30 @@ const Registration = ({ onLogin }) => {
         email: formData.email,
         password: formData.password,
         options: {
-          data: {
-            username: formData.username,
-          },
+          data: { username: formData.username },
         },
       });
-      if (error) {
-        console.error("Error with signing up new user:", error);
-        alert(`Sign up has failed: ${error.message}`);
-        return;
-      }
+
+      if (error) throw error;
+
       if (data?.user) {
+        // Use the ID from the Auth response to link the database record
         const { error: insertError } = await supabase.from("Users").insert([
           {
+            id: data.user.id, // Linking the Auth UUID to the table row
             username: formData.username,
             email: formData.email,
           },
         ]);
-        if (insertError) {
-          console.error("Insert Error:", insertError);
-          alert(`Failed to save user data: ${insertError.message}`);
-          return;
-        }
-        alert(
-          "Sign-up successful! Please check your email for verification link"
-        );
+
+        if (insertError) throw insertError;
+
+        alert("Sign-up successful! Check your email for a verification link.");
         onLogin(formData.username);
       }
     } catch (error) {
-      console.error("Unexpected error:", error);
-      alert("An unexpected error occurred.");
+      console.error("Registration error:", error.message);
+      alert(`Error: ${error.message}`);
     }
   };
 

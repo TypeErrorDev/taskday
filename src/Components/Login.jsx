@@ -6,7 +6,6 @@ import LandingNav from "./LandingNav";
 
 const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({
-    username: "",
     email: "",
     password: "",
   });
@@ -19,39 +18,44 @@ const Login = ({ onLogin }) => {
       [e.target.name]: e.target.value,
     }));
   };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      // 1. Attempt the login
       const { data, error } = await supabase.auth.signInWithPassword({
         email: formData.email,
         password: formData.password,
       });
-      console.log(data.user.id, error);
 
+      // 2. Immediate Error Check: This prevents the 'null' reading error
       if (error) {
-        console.error("Error logging in:", error);
-        alert(`Login has failed: ${error.message}`);
-        return;
+        console.error("Login failed:", error.message);
+        alert(`Login failed: ${error.message}`);
+        return; // Exit the function here
       }
 
+      // 3. If we have a user, fetch their profile from the 'Users' table
       if (data?.user) {
         const { data: userData, error: userError } = await supabase
           .from("Users")
           .select("username")
-          .eq("id", data.user.id)
+          .eq("id", data.user.id) // This matches the ID we linked in Registration
           .single();
 
         if (userError) {
-          console.error("Error fetching username:", userError);
-          alert("Could not retrieve username");
+          console.error("Error fetching profile:", userError);
+          alert("Login successful, but profile data could not be found.");
           return;
         }
+
+        // 4. Finalize Login
         onLogin(userData.username);
-        alert("Login successful!");
+        // alert("Login successful!");
         navigate("/dashboard");
       }
-    } catch (error) {
-      console.error("Unexpected error:", error);
+    } catch (err) {
+      console.error("Unexpected error during login flow:", err);
       alert("An unexpected error occurred.");
     }
   };
@@ -67,7 +71,7 @@ const Login = ({ onLogin }) => {
         onSubmit={handleLogin}
       >
         <input
-          type="text"
+          type="email"
           placeholder="Email Address"
           name="email"
           required
@@ -92,7 +96,7 @@ const Login = ({ onLogin }) => {
         </button>
         <Link to="/">
           <button
-            type="reset"
+            type="button"
             className="bg-white shadow-md text-black font-semibold h-9 w-80 mt-3 rounded-md  hover:bg-slate-800 hover:text-white md:mx-4"
           >
             Cancel
