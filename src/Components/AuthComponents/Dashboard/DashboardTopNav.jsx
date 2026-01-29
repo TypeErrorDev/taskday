@@ -14,7 +14,7 @@ const DashboardTopNav = ({ signOut }) => {
       </div>
       <div className="w-full flex justify-center items-center">
         <button
-          className="w-40 border mr-5 text-white bg-indigo-500"
+          className="border h-10 w-20 mr-2 rounded-lg bg-gradient-to-br from-[#1B0EF1] from-[1%] to-[#8743FF] text-white shadow-md"
           onClick={signOut}
         >
           Signout
