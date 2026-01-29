@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import DashboardSideNav from "../Dashboard/DashboardSideNav";
-import DashboardTopNav from "../Dashboard/DashboardTopNav";
+import DashboardSideNav from "./DashboardSideNav";
+import DashboardTopNav from "./DashboardTopNav";
 import Projects from "./Projects";
 import Tasks from "./Tasks";
 import Analytics from "./Analytics";
